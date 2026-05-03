@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>notes</title>
+  <style>
+
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
+body {
+color: #444;
+font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size: 12px;
+line-height: 1.7;
+padding: 1em;
+margin: auto;
+max-width: 42em;
+background: #fefefe;
+}
+a {
+color: #0645ad;
+text-decoration: none;
+}
+a:visited {
+color: #0b0080;
+}
+a:hover {
+color: #06e;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #111;
+line-height: 125%;
+margin-top: 2em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 2em;
+}
+h3 {
+font-size: 1.5em;
+}
+h4 {
+font-size: 1.2em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #000;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+}
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+}
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+}
+body {
+font-size: 12pt;
+max-width: 100%;
+}
+a, a:visited {
+text-decoration: underline;
+}
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+}
+a[href]:after {
+content: " (" attr(href) ")";
+}
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+}
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+}
+tr, img {
+page-break-inside: avoid;
+}
+img {
+max-width: 100% !important;
+}
+@page :left {
+margin: 15mm 20mm 15mm 10mm;
+}
+@page :right {
+margin: 15mm 10mm 15mm 20mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3 {
+page-break-after: avoid;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="links-to-additional-information">Links to additional
+information</h1>
+<ol type="1">
+<li><p>Mandelbrot set</p>
+<ul>
+<li><a href="https://besharamagazine.org/a-thing-of-beauty/mandelbrot-set-fractal-geometry/">A
+Thing of Beauty: The Mandelbrot Set</a></li>
+<li><a href="https://mandelbrot.site/">mandelbrot.site</a>. An online
+tool for exploring the Mandelbrot set. Works best on a large screen like
+a desktop computer or tablet.</li>
+</ul></li>
+<li><p>Carte figurative des pertes successives en hommes de l’Armée
+Française dans la campagne de Russie 1812–1813</p>
+<ul>
+<li><a href="https://gallica.bnf.fr/ark:/12148/btv1b52504201x">Scan of
+the map</a> at Gallica, which is the digital library of the Bibliothèque
+nationale de France (The national library of France).</li>
+<li><a href="https://www.esri.com/content/dam/esrisites/en-us/esri-press/book-pages/sample-page/mapping-time-illustrated-minards-map-napoleons-russian-campaign-1812.pdf">Minard’s
+map</a>. A book chapter on the map.</li>
+</ul></li>
+<li><p>Interstellar</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Lm8p5rlrSkY">Interstellar,
+trailer 2</a>, Gargantua, the movie’s black hole, appears at 1:37</li>
+<li><a href="https://www.aps.org/archives/publications/apsnews/201412/thorne.cfm">Black
+Holes, Hollywood, and Interstellar: Q&amp;A with Kip Thorne</a></li>
+<li><a href="https://www.nasa.gov/universe/nasa-visualization-shows-a-black-holes-warped-world/">NASA
+Visualization Shows a Black Hole’s Warped World</a>, Press release</li>
+<li><a href="https://svs.gsfc.nasa.gov/13326/">Black Hole Accretion Disk
+Visualization</a>, Scientific Visualization Studio</li>
+</ul></li>
+<li><p>David S. Goodsell</p>
+<ul>
+<li><a href="https://ccsb.scripps.edu/goodsell/">Molecular Art |
+Molecular Science: Home page of David S. Goodsell</a></li>
+<li><a href="https://pdb101.rcsb.org/sci-art/goodsell-gallery">Molecular
+Landscapes by David S. Goodsell</a> at PDB-101, an online portal for
+exploring the world of proteins and nucleic acids</li>
+</ul></li>
+<li><p>Kenneth Libbrecht</p>
+<ul>
+<li><a href="https://www.snowcrystals.com/">Snow Crystals.com</a></li>
+</ul></li>
+<li><p>ESA’s Biomass mission satellite</p>
+<ul>
+<li>ESA’s <a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Biomass">Biomass</a></li>
+<li><a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Biomass/Biomass_satellite_returns_striking_first_images_of_forests_and_more">Biomass
+satellite returns striking first images of forests and more</a></li>
+</ul></li>
+<li><p>JoAnne Growney</p>
+<ul>
+<li><a href="https://joannegr.dot5hosting.com/index.html">JoAnne
+Growney</a></li>
+<li><a href="https://poetrywithmathematics.blogspot.com/">Intersections
+– Poetry with Mathematics</a></li>
+</ul></li>
+<li><p><a href="https://asm.org/events/asm-agar-art-contest/previous-winners">American
+Society of Microbiology’s Agar Art Contest</a></p></li>
+<li><p>Bridges</p>
+<ul>
+<li><a href="https://www.bridgesmathart.org/">Bridges: Mathematics and
+the Arts</a></li>
+<li><a href="https://gallery.bridgesmathart.org/exhibitions">Mathematical Art
+Galleries</a>. Artwork, short films, and fashion exhibited at Bridges
+conferences, as well as, the Joint Mathematics Meetings (JMM).</li>
+<li><a href="https://www2.math.uconn.edu/~glaz/Mathematical_Poetry_at_Bridges/index.html">Mathematical
+Poetry at Bridges</a></li>
+<li><a href="https://archive.bridgesmathart.org/#gsc.tab=0">Papers
+archive</a>. A list of the research papers present at Bridges
+conferences.</li>
+</ul></li>
+<li><p>Cliff Stoll and Klein Bottles</p>
+<ul>
+<li><a href="https://plus.maths.org/introducing-klein-bottle">Introducing the
+Klein bottle</a><br />
+</li>
+<li><a href="https://www.kleinbottle.com/">Acme Klein Bottle</a></li>
+<li><a href="https://www.youtube.com/watch?v=-k3mVnRlQLU">The man with
+1,000 Klein Bottles UNDER his house - Numberphile</a></li>
+<li><a href="https://archive.org/details/The_KGB_The_Computer_and_Me_1990">The
+KGB, the Computer, and Me</a>, 1990 Nova episode.</li>
+</ul></li>
+<li><p>Cracked Earth</p>
+<ul>
+<li><a href="https://www.apsu.edu/news/austin-peay-installs-schmidt-cracked-earth-sculpture.php">Araan
+Schmidt’s ‘Cracked Earth’ brings outdoor art back to APSU</a></li>
+</ul></li>
+<li><p>Hello, world</p>
+<ul>
+<li>Artemis II
+<ul>
+<li><a href="https://www.nasa.gov/image-article/hello-world/">Hello,
+World</a>, Artemis II, Nasa. 2026</li>
+<li><a href="https://www.nasa.gov/artemis-ii-multimedia/">Artemis II
+Multimedia</a></li>
+</ul></li>
+<li>Apollo 17
+<ul>
+<li><a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?mission=AS17&amp;roll=148&amp;frame=22727">AS17-148-22727
+(The Blue Marble)</a>, Nasa, 1972.</li>
+<li><a href="https://science.nasa.gov/earth/earth-observatory/history-of-the-blue-marble/">History
+of the Blue Marble</a></li>
+</ul></li>
+</ul></li>
+<li><p>Pi Day art</p>
+<ul>
+<li><a href="https://mk.bcgsc.ca/pi/">Martin Krzywinski’s Pi Day
+art</a></li>
+</ul></li>
+<li><p>Extra items that did not make it into the presentation.</p>
+<ul>
+<li><a href="https://www.themarginalian.org/2018/03/16/john-updike-cosmic-gall-brandon-stanton/">John
+Updike’s Playful and Profound Ode to the Neutrino, Read by “Humans of
+New York” Creator Brandon Stanton</a></li>
+<li><a href="https://mcescher.com/">M.C. Escher</a>, artist</li>
+<li><a href="https://www.nikonsmallworld.com/">Nikon Small World</a>,
+microcopy photo and video competition</li>
+<li><a href="https://www.usgs.gov/centers/eros/earth-art">Earth As
+Art</a>. From the U.S. Geological Survey’s (USGS) Earth Resources
+Observation and Science (EROS) Center</li>
+<li><a href="https://www.flickr.com/photos/195258204@N03/albums/">University of
+Chicago Science As Art competition gallery</a></li>
+</ul></li>
+</ol>
+</body>
+</html>
